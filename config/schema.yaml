@@ -1,0 +1,39 @@
+columns:
+  brand: category
+  model: category
+  vehicle_age: int
+  km_driven: int
+  seller_type: category
+  fuel_type: category
+  transmission_type: category
+  mileage: float
+  engine: int
+  max_power: float
+  seats: int
+  selling_price: int
+
+numerical_columns:
+  - vehicle_age
+  - km_driven
+  - mileage
+  - engine
+  - max_power
+  - seats
+
+categorical_columns:
+  - brand
+  - model
+  - seller_type
+  - fuel_type
+  - transmission_type
+
+onehot_columns:
+  - seller_type
+  - fuel_type
+  - transmission_type
+
+binary_columns:
+  - brand
+  - model
+
+target_column: selling_price

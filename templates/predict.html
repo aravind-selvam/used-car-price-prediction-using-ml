@@ -1,0 +1,150 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Car Price Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>CarPrice Estimation Form</legend>
+            <div class="mb-3">
+                <label for="brand">Brand</label>
+                <select class="form-control" id="brand" name="brand" placeholder="Brand" required="required">
+                  <option value="" disabled selected>Select Brand Name</option>
+                  {% for brand in brand_list %}
+                  <option value="{{brand}}">{{brand}}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="model">Model</label>
+                <select class="form-control" id="model" name="model" placeholder="Model" required="required">
+                  <option value="" disabled selected>Select Model Name</option>
+                  {% for model in model_list %}
+                  <option value="{{model}}">{{model}}</option>
+                  {% endfor %}
+                </select>                    
+              </div>
+
+              <div class="mb-3">
+                <label for="vechicle_age">Vechicle age</label>
+                <input type="number" class="form-control" id="vehicle_age" name="vehicle_age" min="0" max="30" placeholder="0 - 30 years" required="required">
+              </div>
+
+              <div class="mb-3">
+                <label for="km_driven">Kilometer driven</label>
+                <input type="number" class="form-control" id="km_driven" name="km_driven" min="0" max="100000" step="1" placeholder="0 - 1L km" required="required">
+              </div>
+
+              <div class="mb-3">
+                <label for="seller_type">Select Seller type</label>
+                <select class="form-control" id="seller_type" name="seller_type" placeholder="seller_type" required="required">
+                  <option value="" disabled selected>Seller type</option>
+                  <option>Dealer</option>
+                  <option>Individual</option>
+                  <option>Trustmark Dealer</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="fuel_type">Select Fuel Type</label>
+                <select class="form-control" id="fuel_type" name="fuel_type" placeholder="fuel_type" required="required">
+                  <option value="" disabled selected>Fuel Type</option>
+                  <option>Petrol</option>
+                  <option>Diesel</option>
+                  <option>Electric</option>
+                  <option>CNG</option>
+                  <option>LPG</option>
+                </select>
+              </div>
+              
+              <div class="mb-3">
+                <label for="transmission">Select Transmission Type</label>
+                <select class="form-control" id="transmission" name="transmission" placeholder="transmission" required="required">
+                  <option value="" disabled selected>Fuel Type</option>
+                  <option>Automatic</option>
+                  <option>Manual</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="mileage">Mileage</label>
+                <input type="number" class="form-control" id="mileage" name="mileage" min="4" max="30" placeholder="4 - 30 km/litre" required="required">
+              </div>
+
+              <div class="mb-3">
+                <label for="engine">Engine</label>
+                <input type="number" class="form-control" id="engine" name="engine" min="700" max="7000" placeholder="700cc - 7000cc Engine capacity" required="required">
+              </div>
+
+              <div class="mb-3">
+                <label for="max_power">Max Power</label>
+                <input type="number" class="form-control" id="max_power" name="max_power" min="38" max="600" placeholder="38bhp - 600bhp Engine power" required="required">
+              </div>
+
+              <div class="mb-3">
+                <label for="seats">Total Seats count</label>
+                <input type="number" class="form-control" id="seats" name="seats" min="2" max="9" placeholder="2 - 9 seating" required="required">
+              </div>
+
+                <input class="btn btn-primary" type="submit" value="Predict Used Car Value" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Used Car Price
+            </div>
+            <div class="card-body">
+        {% if context['carprice_data'] is not none %}
+        <table class="table table-striped">
+            <caption>Used CarPrice Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['carprice_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>Car Price Value </td>
+                <td>
+                    {{ context['carprice_value'] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to estimate Used Car price</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}

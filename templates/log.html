@@ -1,0 +1,22 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Log Details</title>
+{% endblock %}
+
+{% block content %}
+
+
+Go to <a class="btn btn-primary" href="/">Home</a>
+<div class="row">
+  
+    <div class="col-md-12 " style="margin-bottom:20px;height:500px;overflow:scroll">
+    {{ context['log']|safe }}
+    </div>
+</div>
+
+
+        
+{% endblock %}

@@ -1,0 +1,12 @@
+numpy
+Flask
+gunicorn
+sklearn
+pandas
+PyYAML
+evidently
+dill
+matplotlib
+xgboost
+category_encoders
+-e .
