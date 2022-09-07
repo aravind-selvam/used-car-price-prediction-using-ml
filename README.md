@@ -62,7 +62,7 @@ From these above models after hyperparameter optimization we selected Top two mo
 ![webpage](static/webpage.png)
 
 ### **This is the screenshot of the webpage which gets user input for prediction**
-![predict](static/predictform.png)
+![predict](static/predict_form.png)
 
 
 ### **This is the screenshot of the page in which user can change the model parameters for the experiment**
