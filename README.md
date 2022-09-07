@@ -1,5 +1,7 @@
 # 🚗 Used Car Price Prediction
-This project aims to solve the problem of predicting the price of a used car, using Sklearn's supervised machine learning techniques. It is a regression problem and predictions are carried out on dataset of used car sales in the Indian car market Cardheko website. Several regression techniques have been studied, including XGboost and Random forests of decision trees. Their performances were compared in order to determine which one works best with out dataset.
+This project aims to solve the problem of predicting the price of a used car, using Sklearn's supervised machine learning techniques. It is a regression problem and predictions are carried out on dataset of used car sales in the Indian car market Cardheko website. Several regression techniques have been studied, including XGboost and Random forests of decision trees.
+
+Their performances were compared in order to determine which one works best with out dataset and used them to predict the price of a used car from user input from Flask application.
 
 💿 Installing
 1. Environment setup.
