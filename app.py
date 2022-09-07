@@ -1,9 +1,7 @@
 from flask import Flask, request
 import sys
-
 import pip
-from carprice.util.util import read_yaml_file, write_yaml_file
-from carprice.util.get_model_brand_list import model_brand_list
+from carprice.util.util import read_yaml_file, write_yaml_file, get_carlist
 from matplotlib.style import context
 from carprice.logger import logging
 import os, sys
@@ -106,11 +104,10 @@ def predict():
         CAR_DATA_KEY: None,
         CAR_VALUE_KEY: None
     }
-    brand_list, model_list = model_brand_list()
+    car_list = get_carlist()
     
     if request.method == "POST":
-        brand = request.form.get("brand")
-        model = request.form.get("model")
+        car_name = request.form.get("car_name")
         vehicle_age = int(request.form.get("vehicle_age"))
         km_driven = int(request.form.get("km_driven"))
         seller_type = request.form.get("seller_type")
@@ -121,8 +118,7 @@ def predict():
         max_power = float(request.form.get("max_power"))
         seats = int(request.form.get("seats"))
 
-        carprice_data = CarPriceData(brand= brand, 
-                                     model= model, 
+        carprice_data = CarPriceData(car_name= car_name, 
                                      vehicle_age= vehicle_age, 
                                      km_driven= km_driven, 
                                      seller_type= seller_type, 
@@ -141,7 +137,7 @@ def predict():
             CAR_VALUE_KEY: round(carprice_value[0], 2),
         }
         return render_template('predict.html', context=context)
-    return render_template("predict.html", context=context, brand_list= brand_list, model_list= model_list)
+    return render_template("predict.html", context=context, car_list= car_list)
 
 
 @app.route('/saved_models', defaults={'req_path': 'saved_models'})
@@ -220,4 +216,4 @@ def render_log_dir(req_path):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -5,6 +5,7 @@ import numpy as np
 import dill
 import pandas as pd
 from carprice.constant import *
+from urllib import request 
 
 
 def write_yaml_file(file_path:str,data:dict=None):
@@ -109,4 +110,15 @@ def load_data(file_path: str, schema_file_path: str) -> pd.DataFrame:
 
     except Exception as e:
         raise CarException(e,sys) from e
+
+
+def get_carlist():
+    try:
+        data_url ="https://raw.githubusercontent.com/aravind9722/datasets-for-ML-projects/main/cardekho_dataset.csv"
+        df =pd.read_csv(data_url)
+        car_list = list(df.car_name.unique())
+        return car_list
+    except Exception as e:
+        raise CarException(e,sys) from e
+
     

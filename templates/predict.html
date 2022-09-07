@@ -15,23 +15,13 @@
         <form action="/predict" method="post">
             <legend>CarPrice Estimation Form</legend>
             <div class="mb-3">
-                <label for="brand">Brand</label>
-                <select class="form-control" id="brand" name="brand" placeholder="Brand" required="required">
-                  <option value="" disabled selected>Select Brand Name</option>
-                  {% for brand in brand_list %}
-                  <option value="{{brand}}">{{brand}}</option>
+                <label for="brand">Car Name</label>
+                <select class="form-control" id="car_name" name="car_name" placeholder="Car Name" required="required">
+                  <option value="" disabled selected>Select Car Name</option>
+                  {% for car in car_list %}
+                  <option value="{{car}}">{{car}}</option>
                   {% endfor %}
                 </select>
-              </div>
-
-              <div class="mb-3">
-                <label for="model">Model</label>
-                <select class="form-control" id="model" name="model" placeholder="Model" required="required">
-                  <option value="" disabled selected>Select Model Name</option>
-                  {% for model in model_list %}
-                  <option value="{{model}}">{{model}}</option>
-                  {% endfor %}
-                </select>                    
               </div>
 
               <div class="mb-3">

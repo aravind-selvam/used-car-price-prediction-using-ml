@@ -9,8 +9,7 @@ import pandas as pd
 class CarPriceData:
 
     def __init__(self,
-                brand: str,
-                model: str,
+                car_name: str,
                 vehicle_age: int,
                 km_driven: int,
                 seller_type: str,
@@ -23,8 +22,7 @@ class CarPriceData:
                 selling_price: int = None
                  ):
         try:
-            self.brand = brand
-            self.model = model
+            self.car_name = car_name
             self.vehicle_age = vehicle_age
             self.km_driven = km_driven
             self.seller_type = seller_type
@@ -49,8 +47,7 @@ class CarPriceData:
     def get_car_data_as_dict(self):
         try:
             input_data = {
-                "brand": [self.brand],
-                "model": [self.model],
+                "car_name": [self.car_name],
                 "vehicle_age": [self.vehicle_age],
                 "km_driven": [self.km_driven],
                 "seller_type": [self.seller_type],

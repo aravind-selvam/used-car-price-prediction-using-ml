@@ -102,7 +102,7 @@ def evaluate_regression_model(model_list: list, X_train:np.ndarray, y_train:np.n
 
             #if model accuracy is greater than base accuracy and train and test score is within certain thershold
             #we will accept that model as accepted model
-            if model_accuracy >= base_accuracy and diff_test_train_acc < 0.08:
+            if model_accuracy >= base_accuracy:
                 base_accuracy = model_accuracy
                 metric_info_artifact = MetricInfoArtifact(model_name=model_name,
                                                         model_object=model,

@@ -1,6 +1,5 @@
 columns:
-  brand: category
-  model: category
+  car_name: category
   vehicle_age: int
   km_driven: int
   seller_type: category
@@ -21,8 +20,7 @@ numerical_columns:
   - seats
 
 categorical_columns:
-  - brand
-  - model
+  - car_name
   - seller_type
   - fuel_type
   - transmission_type
@@ -33,7 +31,6 @@ onehot_columns:
   - transmission_type
 
 binary_columns:
-  - brand
-  - model
+ - car_name
 
 target_column: selling_price

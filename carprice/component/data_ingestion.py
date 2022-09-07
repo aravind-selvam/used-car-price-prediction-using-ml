@@ -51,7 +51,7 @@ class DataIngestion:
 
             logging.info(f"Reading csv file: [{data_file_path}]")
             data_frame = pd.read_csv(data_file_path, index_col=[0])
-            data_frame.drop("car_name", axis=1, inplace=True)
+            data_frame.drop(["brand","model"], axis=1, inplace=True)
             
             logging.info(f"Splitting data into train and test")
             train_set = None
