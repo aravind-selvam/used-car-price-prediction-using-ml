@@ -1,5 +1,5 @@
 from carprice.entity.config_entity import DataIngestionConfig
-import sys,os
+import sys, os
 from carprice.exception import CarException
 from carprice.logger import logging
 from carprice.entity.artifact_entity import DataIngestionArtifact
