@@ -216,4 +216,4 @@ def render_log_dir(req_path):
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0",port=8080)

@@ -9,4 +9,6 @@ dill
 matplotlib
 xgboost
 category_encoders
+boto3
+awscli
 -e .
