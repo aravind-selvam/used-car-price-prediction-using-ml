@@ -20,4 +20,4 @@ EXPOSE $PORT
 
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 
-CMD ["gunicorn","--workers=1","--bind","0.0.0.0:$PORT","app:app"]
+CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
