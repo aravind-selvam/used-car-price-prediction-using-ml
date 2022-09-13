@@ -1,3 +1,16 @@
 venv/
 .git
 .gitignore
+test/
+notebook/
+Car_price_predictor.egg-info/
+.gitignore
+.github
+README.md
+LICENSE
+logs/
+carprice/artifact
+saved_models/
+static/predict_form.png
+static/update_model_config.png
+static/webpage.png

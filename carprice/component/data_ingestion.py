@@ -7,6 +7,7 @@ import numpy as np
 from six.moves import urllib
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from carprice.util.s3_operation import download_from_s3
 
 class DataIngestion:
 
@@ -22,19 +23,21 @@ class DataIngestion:
     def download_carprice_data(self) -> str:
         try:
             #extraction remote url to download dataset
-            download_url = self.data_ingestion_config.dataset_download_url
-
+            bucket_name =self.data_ingestion_config.bucket_name
+            object_name =self.data_ingestion_config.object_name
+            local_file_name= self.data_ingestion_config.local_file_name
+            
             #folder location to download file
             download_dir = self.data_ingestion_config.raw_data_dir
             
             os.makedirs(download_dir,exist_ok=True)
 
-            filename = os.path.basename(download_url)
-
-            raw_data_dir = os.path.join(download_dir, filename)
-
-            logging.info(f"Downloading file from :[{download_url}] into :[{raw_data_dir}]")
-            urllib.request.urlretrieve(download_url, raw_data_dir)
+            raw_data_dir = os.path.join(download_dir, local_file_name)
+            
+            download_from_s3(bucket_name=bucket_name, 
+                             object_name= object_name, 
+                             filename=raw_data_dir)
+        
             logging.info(f"File :[{raw_data_dir}] has been downloaded successfully.")
             return raw_data_dir
 

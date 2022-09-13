@@ -151,6 +151,7 @@ class Pipeline(Thread):
             else:
                 logging.info("Trained model rejected.")
             logging.info("Pipeline completed.")
+            print('Pipeline completed.')
 
             stop_time = datetime.now()
             Pipeline.experiment = Experiment(experiment_id=Pipeline.experiment.experiment_id,

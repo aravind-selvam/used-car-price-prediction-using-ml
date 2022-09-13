@@ -3,7 +3,9 @@ training_pipeline_config:
   artifact_dir: artifact
 
 data_ingestion_config:
-  dataset_download_url: https://raw.githubusercontent.com/aravind9722/datasets-for-ML-projects/main/cardekho_dataset.csv
+  bucket_name: used-car-data-ineuron
+  object_name: cardekho_dataset.csv
+  local_file_name: used-car-data.csv
   raw_data_dir: raw_data
   ingested_dir: ingested_data
   ingested_train_dir: train
@@ -16,7 +18,6 @@ data_validation_config:
   report_page_file_name: report.html
 
 data_transformation_config:
-  add_bedroom_per_room: true
   transformed_dir: transformed_data
   transformed_train_dir: train
   transformed_test_dir: test

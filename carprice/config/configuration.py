@@ -31,7 +31,12 @@ class Configuartion:
             )
             data_ingestion_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
             
-            dataset_download_url = data_ingestion_info[DATA_INGESTION_DOWNLOAD_URL_KEY]
+            bucket_name = data_ingestion_info[S3_BUCKET_NAME_KEY]
+            
+            object_name = data_ingestion_info[S3_OBJECT_NAME_KEY]
+            
+            local_file_name = data_ingestion_info[LOCAL_FILE_NAME_KEY]
+            
             raw_data_dir = os.path.join(data_ingestion_artifact_dir,
             data_ingestion_info[DATA_INGESTION_RAW_DATA_DIR_KEY]
             )
@@ -50,7 +55,9 @@ class Configuartion:
             )
 
             data_ingestion_config=DataIngestionConfig(
-                dataset_download_url=dataset_download_url, 
+                bucket_name=bucket_name,
+                object_name=object_name,
+                local_file_name=local_file_name,
                 raw_data_dir=raw_data_dir, 
                 ingested_train_dir=ingested_train_dir, 
                 ingested_test_dir=ingested_test_dir
