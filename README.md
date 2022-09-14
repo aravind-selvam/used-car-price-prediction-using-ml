@@ -69,5 +69,8 @@ From these above models after hyperparameter optimization we selected Top two mo
 ### **This is the screenshot of the page in which user can change the model parameters for the experiment**
 ![model parameters](static/update_model_config.png)
 
+### **When you Train the model everytime with new data, user can check the data drift in data validation artifact `report.html`.**
+![data drift](static/datadrift.png)
+
 ## Conclusion
 - This Project can be used in real-life by Users or Used car dealers to predict the Estimated Price of the car based on input specifications.
