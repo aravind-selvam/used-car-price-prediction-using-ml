@@ -19,7 +19,7 @@ pip install -r requirements.txt
 ```
 5. Run Application
 ```
-Flask
+python app.py
 ```
 
 
